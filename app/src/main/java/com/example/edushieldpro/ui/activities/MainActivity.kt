@@ -1,11 +1,11 @@
-package com.example.edushieldpro
+package com.example.edushieldpro.ui.activities
 
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
+import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

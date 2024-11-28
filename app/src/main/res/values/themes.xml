@@ -9,5 +9,7 @@
         <item name="colorControlActivated">@color/green</item>
     </style>
 
+
+
     <style name="Theme.EDUSHIELDPRO" parent="Base.Theme.EDUSHIELDPRO" />
 </resources>
