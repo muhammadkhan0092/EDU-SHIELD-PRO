@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/main_gradient">
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -18,4 +20,134 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.96" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="228dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:text="Terms Of Service"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/g2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="A- Terms and Conditions:-"
+        android:textColor="@color/green"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/g2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/g1"
+        tools:layout_editor_absoluteY="160dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="0dp"
+        android:layout_height="181dp"
+        android:layout_marginTop="4dp"
+        android:maxLines="11"
+        android:text="1-By using this app, you agree to comply with all applicable laws and regulations and acknowledge that any misuse may result in account suspension.\n
+2-All content provided within the app is for informational purposes only and should not be considered professional advice.\n
+3-We reserve the right to modify or terminate the app's features and services at any time without prior notice.\n
+4-Your use of the app constitutes acceptance of our privacy policy, which outlines how we collect, use, and protect your personal information"
+        app:layout_constraintEnd_toStartOf="@+id/g2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/g1"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="6dp"
+        android:text="B- Privacy Policy:-"
+        android:textColor="@color/green"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/g2"
+        app:layout_constraintStart_toStartOf="@+id/g1"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="380dp"
+        android:layout_height="169dp"
+        android:layout_marginTop="8dp"
+        android:text="1-We collect personal information solely for the purpose of enhancing your user experience and providing relevant services, ensuring that your data is processed in accordance with applicable privacy laws.\n
+2-Your information will never be sold or shared with third parties without your explicit consent, except as required by law.\n
+3-We implement industry-standard security measures to protect your data from unauthorized access and ensure its confidentiality."
+        app:layout_constraintEnd_toStartOf="@+id/g2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/g1"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="91dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/terms" />
+
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/radioButton23"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="4dp"
+        android:text="i agree with the terms and conditions."
+        android:textColor="@color/green"
+        android:textSize="14sp"
+        android:theme="@style/MyRadioButton"
+        app:layout_constraintEnd_toStartOf="@+id/g2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/g1"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/radioButton234"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:text="i agree with the privacy policy."
+        android:textColor="@color/green"
+        android:textSize="14sp"
+        android:theme="@style/MyRadioButton"
+        app:layout_constraintEnd_toStartOf="@+id/g2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/g1"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton23" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Decline"
+        android:backgroundTint="@color/green"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/g2"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="@+id/g1" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/green"
+        app:cornerRadius="10dp"
+        android:text="Accept"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
