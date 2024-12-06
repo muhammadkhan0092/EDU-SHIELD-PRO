@@ -13,7 +13,7 @@
         android:title=""
         android:icon="@drawable/learning"/>
     <item
-        android:id="@+id/profileFragment"
+        android:id="@+id/settingFragment"
         android:icon="@drawable/person"
         android:title=""/>
 </menu>

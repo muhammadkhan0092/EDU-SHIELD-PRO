@@ -30,17 +30,25 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.10" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/g10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.85" />
+
                 <TextView
                     android:id="@+id/tvHeading"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="60dp"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:text="Go Ahead and set up \nyour account"
+                    android:text="Welcome Back Student!\nLog in to continue where you left off."
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintLeft_toRightOf="@id/g9"
+                    app:layout_constraintEnd_toEndOf="@id/g10"
+                   app:layout_constraintStart_toStartOf="@id/g9"
                     app:layout_constraintTop_toTopOf="parent" />
                 <TextView
                     android:id="@+id/tvDesc"
@@ -68,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardElevation="0dp"
-            android:backgroundTint="#4CAF50"
+            android:backgroundTint="@color/green"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cvFirst">
@@ -146,7 +154,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cardView"
-                    app:navGraph="@navigation/nav_graph" />
+                    app:navGraph="@navigation/registration_nav_graph" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

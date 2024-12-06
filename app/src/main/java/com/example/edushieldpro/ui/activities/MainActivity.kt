@@ -10,15 +10,23 @@ import com.example.edushieldpro.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private var currentSection = "login"
+    var type = ""
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        type = intent.getStringExtra("type").toString()
+        setupUi()
         onLoginClickListener()
         onSignUpClickListener()
-
     }
+
+    private fun setupUi() {
+        setTitle(type,"login")
+        setDescription(type,"login")
+    }
+
 
     private fun onLoginClickListener() {
         binding.btnLog.setOnClickListener {
@@ -30,6 +38,8 @@ class MainActivity : AppCompatActivity() {
                     ContextCompat.getColor(this, R.color.green)
                 )
                 currentSection = "login"
+                setDescription(type,"login")
+                setTitle(type,"login")
                 findNavController(R.id.fragmentContainerView).navigate(R.id.action_signUpFragment_to_logInFragment)
             }
         }
@@ -45,7 +55,52 @@ class MainActivity : AppCompatActivity() {
                 binding.btnLog.backgroundTintList = ColorStateList.valueOf(
                     ContextCompat.getColor(this, R.color.green)
                 )
+                setTitle(type,"sign")
+                setDescription(type,"sign")
                 findNavController(R.id.fragmentContainerView).navigate(R.id.action_logInFragment_to_signUpFragment)
+            }
+        }
+    }
+    private fun setTitle(type : String,page : String) {
+        if(type == "teacher"){
+            if(page == "login"){
+                binding.tvHeading.text = "Welcome Back InstrnLog in to continue where you left off"
+            }
+            else if(page=="sign")
+            {
+                binding.tvHeading.text = "Dear Instructor!\nGo Ahead and set up your account"
+            }
+        }
+        else if(type=="student")
+        {
+            if(page == "login"){
+                binding.tvHeading.text = "Welcome Back Student!\nLog in to continue where you left off"
+            }
+            else if(page=="sign")
+            {
+                binding.tvHeading.text = "Dear Learner!\nGo Ahead and set up your account"
+            }
+        }
+    }
+
+    private fun setDescription(type : String,page : String) {
+        if(type == "teacher"){
+            if(page == "login"){
+                binding.tvDesc.text = "Login to continue educating"
+            }
+            else if(page=="sign")
+            {
+                binding.tvDesc.text = "Sign up and Start educating"
+            }
+        }
+        else if(type=="student")
+        {
+            if(page == "login"){
+                binding.tvDesc.text = "Log in -> one step closer to education"
+            }
+            else if(page=="sign")
+            {
+                binding.tvDesc.text = "Sign up to enjoy Quality courses"
             }
         }
     }

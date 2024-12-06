@@ -15,9 +15,30 @@
     <fragment
         android:id="@+id/purchaseFragment"
         android:name="com.example.edushieldpro.ui.fragmentsMain.PurchaseFragment"
-        android:label="PurchaseFragment" />
+        android:label="PurchaseFragment" >
+        <action
+            android:id="@+id/action_purchaseFragment_to_courseDetailFragment"
+            app:destination="@id/courseDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.edushieldpro.ui.fragmentsMain.SettingFragment"
+        android:label="settingFragment" >
+        <action
+            android:id="@+id/action_settingFragment_to_profileFragment2"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/courseDetailFragment"
+        android:name="com.example.edushieldpro.ui.fragmentsMain.CourseDetailFragment"
+        android:label="CourseDetailFragment" />
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.edushieldpro.ui.fragmentsMain.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_settingFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>
