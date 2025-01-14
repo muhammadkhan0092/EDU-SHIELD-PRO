@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/instructor_nav_graph"
+    app:startDestination="@id/instructorCoursesFragment">
+
+    <fragment
+        android:id="@+id/fragmentCreateCourse"
+        android:name="com.example.edushieldpro.ui.instructor.FragmentCreateCourse"
+        android:label="FragmentCreateCourse" >
+        <action
+            android:id="@+id/action_fragmentCreateCourse_to_instructorCoursesFragment"
+            app:destination="@id/instructorCoursesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructorCoursesFragment"
+        android:name="com.example.edushieldpro.ui.instructor.InstructorCoursesFragment"
+        android:label="InstructorCoursesFragment" >
+        <action
+            android:id="@+id/action_instructorCoursesFragment_to_fragmentCreateCourse"
+            app:destination="@id/fragmentCreateCourse" />
+        <action
+            android:id="@+id/action_instructorCoursesFragment_to_instructorCourseDetailFragment"
+            app:destination="@id/instructorCourseDetailFragment" />
+        <action
+            android:id="@+id/action_instructorCoursesFragment_self"
+            app:destination="@id/instructorCoursesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructorCourseDetailFragment"
+        android:name="com.example.edushieldpro.ui.instructor.InstructorCourseDetailFragment"
+        android:label="InstructorCourseDetailFragment" >
+        <argument
+            android:name="course"
+            app:argType="com.example.edushieldpro.models.Course" />
+    </fragment>
+</navigation>

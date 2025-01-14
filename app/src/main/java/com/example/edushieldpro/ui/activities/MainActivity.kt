@@ -1,5 +1,6 @@
 package com.example.edushieldpro.ui.activities
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +8,9 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.ActivityMainBinding
-
+import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private var currentSection = "login"
     var type = ""
@@ -20,7 +23,13 @@ class MainActivity : AppCompatActivity() {
         setupUi()
         onLoginClickListener()
         onSignUpClickListener()
+        var a : String? = intent.getStringExtra("category")
+        if (a != null) {
+            binding.tvDesc.text = a
+        }
     }
+
+
 
     private fun setupUi() {
         setTitle(type,"login")

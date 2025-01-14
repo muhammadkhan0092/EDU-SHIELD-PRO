@@ -5,14 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.FragmentCourseDetailBinding
 import com.example.edushieldpro.databinding.FragmentProfileBinding
-import com.example.edushieldpro.ui.adapters.AllCoursesAdapter
-import com.example.edushieldpro.ui.adapters.ChaptersAdapter
-import com.example.edushieldpro.ui.models.Course
-import com.example.edushieldpro.ui.utils.VerticalItemDecoration
+import com.example.edushieldpro.adapters.AllCoursesAdapter
+import com.example.edushieldpro.adapters.ChaptersAdapter
+import com.example.edushieldpro.models.Course
+import com.example.edushieldpro.utils.VerticalItemDecoration
 
 
 class ProfileFragment : Fragment() {
@@ -29,5 +30,8 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.imageView12.setOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 }

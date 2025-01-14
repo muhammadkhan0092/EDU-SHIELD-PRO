@@ -24,4 +24,8 @@
         android:id="@+id/termsAndConditionFragment"
         android:name="com.example.edushieldpro.ui.fragmentIntro.TermsAndConditionFragment"
         android:label="TermsAndConditionFragment" />
+    <fragment
+        android:id="@+id/fragmentVideo"
+        android:name="com.example.edushieldpro.ui.fragmentIntro.FragmentVideo"
+        android:label="FragmentVideo" />
 </navigation>

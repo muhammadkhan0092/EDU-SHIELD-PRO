@@ -16,6 +16,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url = uri("https://github.com/VdoCipher/maven-repo/raw/master/repo")
+        }
     }
 }
 

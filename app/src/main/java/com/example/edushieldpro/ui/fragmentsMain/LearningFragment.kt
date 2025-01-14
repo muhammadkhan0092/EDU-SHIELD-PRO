@@ -6,20 +6,24 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.FragmentLearningBinding
 import com.example.edushieldpro.databinding.RvMyLearningItemBinding
-import com.example.edushieldpro.ui.adapters.MyLearningAdapter
-import com.example.edushieldpro.ui.models.Course
-import com.example.edushieldpro.ui.utils.VerticalItemDecoration
+import com.example.edushieldpro.adapters.MyLearningAdapter
+import com.example.edushieldpro.models.Course
+import com.example.edushieldpro.utils.VerticalItemDecoration
 import kotlin.math.abs
 
 
 class LearningFragment : Fragment(){
     private lateinit var binding: FragmentLearningBinding
     private lateinit var myLearningAdapter: MyLearningAdapter
+    private lateinit var backPressCallback: OnBackPressedCallback
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,24 +35,36 @@ class LearningFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val view = RvMyLearningItemBinding.inflate(LayoutInflater.from(requireContext()))
-        view.flexibleView.post {
-            Log.d("khan","ok : ${view.flexibleView.width}")
-        }
+        setupBackPressListener()
         setupAllCoursesRv()
+        setupData()
 
-        val l = listOf(
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,1),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,3),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,4),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,5),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,6),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,7),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,8)
+
+    }
+
+    private fun setupData() {
+        val list = listOf(
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web")
         )
-        myLearningAdapter.differ.submitList(l)
+        myLearningAdapter.differ.submitList(list)
+    }
+
+    private fun setupBackPressListener() {
+        binding.imageView11.setOnClickListener {
+            findNavController().popBackStack()
+        }
+        val callback = requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            findNavController().popBackStack()
+        }
     }
 
     private fun setupAllCoursesRv() {
@@ -59,13 +75,5 @@ class LearningFragment : Fragment(){
             LinearLayoutManager.VERTICAL,false)
     }
 
-    fun getViewSizeInDP(view: View, context: Context): Pair<Float, Float> {
-        val widthInPixels = view.width.toFloat()
-        val heightInPixels = view.height.toFloat()
-        val density = context.resources.displayMetrics.density
-        val widthInDP = widthInPixels / density
-        val heightInDP = heightInPixels / density
 
-        return Pair(widthInDP, heightInDP)
-    }
 }

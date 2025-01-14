@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.edushieldpro.databinding.FragmentTermsAndConditionsBinding
 import com.example.edushieldpro.ui.activities.MainActivity
+import com.example.edushieldpro.utils.Constants.typeStudent
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class TermsAndConditionFragment : Fragment(){
     private lateinit var binding: FragmentTermsAndConditionsBinding
     private var count = 0
@@ -32,7 +34,7 @@ class TermsAndConditionFragment : Fragment(){
     private fun onProceedClickedListener() {
         binding.button4.setOnClickListener {
             val intent = Intent(requireContext(),MainActivity::class.java)
-            intent.putExtra("type","student")
+            intent.putExtra("type",typeStudent)
             startActivity(intent)
         }
 

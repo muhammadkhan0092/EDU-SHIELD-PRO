@@ -1,4 +1,4 @@
-package com.example.edushieldpro.ui.adapters
+package com.example.edushieldpro.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.RvAllCoursesItemBinding
-import com.example.edushieldpro.ui.models.Course
+import com.example.edushieldpro.models.Course
 
 class AllCoursesAdapter : RecyclerView.Adapter<AllCoursesAdapter.AddressViewHolder>(){
 
@@ -16,7 +17,7 @@ class AllCoursesAdapter : RecyclerView.Adapter<AllCoursesAdapter.AddressViewHold
 
     private val diffUtil =object : DiffUtil.ItemCallback<Course>(){
         override fun areItemsTheSame(oldItem: Course, newItem: Course): Boolean {
-            return oldItem.courseId==newItem.courseId
+            return oldItem.courseId == newItem.courseId
         }
 
         override fun areContentsTheSame(oldItem: Course, newItem: Course): Boolean {
@@ -33,23 +34,25 @@ class AllCoursesAdapter : RecyclerView.Adapter<AllCoursesAdapter.AddressViewHold
         viewType: Int
     ): AddressViewHolder {
         return AddressViewHolder(
-            RvAllCoursesItemBinding.inflate(LayoutInflater.from(parent.context))
+            RvAllCoursesItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         )
+    }
+
+    override fun getItemCount(): Int {
+        return differ.currentList.size
     }
 
     override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
         val item = differ.currentList[position]
         holder.binding.apply {
-            imageView6.setBackgroundResource(item.image)
+            imageView6.setImageResource(R.drawable.testing)
             tvCategory.text = item.category
             tvTitle.text = item.title
             tvRating.text = item.rating.toString()
         }
     }
 
-    override fun getItemCount(): Int {
-        return differ.currentList.size
-    }
+
 
 
 }

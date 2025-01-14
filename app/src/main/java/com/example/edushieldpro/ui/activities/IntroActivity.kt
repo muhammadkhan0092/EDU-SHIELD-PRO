@@ -7,7 +7,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.ActivityIntroBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class IntroActivity : AppCompatActivity() {
     private lateinit var binding : ActivityIntroBinding
     override fun onCreate(savedInstanceState: Bundle?) {

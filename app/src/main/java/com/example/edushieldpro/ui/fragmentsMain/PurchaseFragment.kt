@@ -1,22 +1,26 @@
 package com.example.edushieldpro.ui.fragmentsMain
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.FragmentPurchaseBinding
-import com.example.edushieldpro.ui.adapters.AllCoursesAdapter
-import com.example.edushieldpro.ui.models.Course
-import com.example.edushieldpro.ui.utils.VerticalItemDecoration
+import com.example.edushieldpro.adapters.AllCoursesAdapter
+import com.example.edushieldpro.models.Course
+import com.example.edushieldpro.utils.VerticalItemDecoration
 
 
 class PurchaseFragment : Fragment(){
     private lateinit var binding: FragmentPurchaseBinding
     private lateinit var allCoursesAdapter: AllCoursesAdapter
+    private lateinit var backPressCallback: OnBackPressedCallback
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,20 +33,42 @@ class PurchaseFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupAllCoursesRv()
-        binding.tvAllCourses.setOnClickListener {
-            findNavController().navigate(R.id.action_purchaseFragment_to_courseDetailFragment)
+        onClickListener()
+        setupData()
+        sas()
+
+
+    }
+
+    private fun sas() {
+        if(1==1){
+
         }
+    }
+
+    private fun setupData() {
         val list = listOf(
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2)
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web"),
+            Course("","","Web Dev","WEB","",3.5,56,"56","This is a web")
         )
         allCoursesAdapter.differ.submitList(list)
+    }
+
+    private fun onClickListener() {
+        binding.imageView4.setOnClickListener {
+            findNavController().navigate(R.id.action_purchaseFragment_to_homeFragment)
+        }
+        binding.textView14.setOnClickListener {
+            findNavController().navigate(R.id.action_purchaseFragment_to_courseDetailFragment)
+        }
     }
 
     private fun setupAllCoursesRv() {

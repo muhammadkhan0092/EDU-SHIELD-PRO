@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.FragmentCourseDetailBinding
-import com.example.edushieldpro.ui.adapters.AllCoursesAdapter
-import com.example.edushieldpro.ui.adapters.ChaptersAdapter
-import com.example.edushieldpro.ui.models.Course
-import com.example.edushieldpro.ui.utils.VerticalItemDecoration
+import com.example.edushieldpro.adapters.AllCoursesAdapter
+import com.example.edushieldpro.adapters.ChaptersAdapter
+import com.example.edushieldpro.models.Course
+import com.example.edushieldpro.utils.VerticalItemDecoration
 
 
 class CourseDetailFragment : Fragment(){
@@ -30,17 +30,6 @@ class CourseDetailFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         setupAllCoursesRv()
-        val list = listOf(
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.testing,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.testing,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.testing,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2),
-            Course("helllo","Graphic Designing","Graphic Designing Advanced", R.drawable.google,4.1,2)
-        )
-        chaptersAdapter.differ.submitList(list)
     }
 
     private fun setupAllCoursesRv() {

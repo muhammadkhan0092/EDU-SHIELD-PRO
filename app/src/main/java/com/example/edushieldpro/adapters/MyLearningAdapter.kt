@@ -1,4 +1,4 @@
-package com.example.edushieldpro.ui.adapters
+package com.example.edushieldpro.adapters
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.RvMyLearningItemBinding
-import com.example.edushieldpro.ui.models.Course
+import com.example.edushieldpro.models.Course
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -57,6 +57,7 @@ class MyLearningAdapter : RecyclerView.Adapter<MyLearningAdapter.MyLearningViewH
             val layoutParams = holder.binding.flexibleView.layoutParams
             layoutParams.width = www / item.sold
             holder.binding.flexibleView.layoutParams = layoutParams
+            holder.binding.imageView6.setImageResource(R.drawable.testing)
         }
     }
 

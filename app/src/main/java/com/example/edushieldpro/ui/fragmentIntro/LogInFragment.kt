@@ -10,8 +10,9 @@ import androidx.fragment.app.Fragment
 import com.example.edushieldpro.databinding.FragmentLogInBinding
 import com.example.edushieldpro.ui.activities.HomeActivity
 import com.example.edushieldpro.ui.activities.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class LogInFragment : Fragment(){
     private lateinit var binding: FragmentLogInBinding
     override fun onCreateView(

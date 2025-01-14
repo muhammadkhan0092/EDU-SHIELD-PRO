@@ -6,24 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activities.HomeActivity">
+
     <fragment
-        android:id="@+id/fragmentContainerView"
+        android:id="@+id/fragmentContainerViewStudent"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
+        android:visibility="invisible"
         android:layout_height="0dp"
-        app:defaultNavHost="true"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/bnbStudent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:navGraph="@navigation/main_nav_graph" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+        android:id="@+id/bnbStudent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="@color/green"
+        android:visibility="invisible"
         app:itemIconSize="30dp"
         app:itemIconTint="@color/white"
         app:itemTextColor="@android:color/transparent"
@@ -32,5 +37,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/simple_bottom_menu" />
+
+    <fragment
+        android:id="@+id/fragmentContainerViewInstructor"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/bnbStudent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:navGraph="@navigation/instructor_nav_graph" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnbInstructor"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/green"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/instructor_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

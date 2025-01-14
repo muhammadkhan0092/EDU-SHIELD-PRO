@@ -1,4 +1,4 @@
-package com.example.edushieldpro.ui.adapters
+package com.example.edushieldpro.adapters
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.RvAllCoursesItemBinding
 import com.example.edushieldpro.databinding.RvChaptersBinding
-import com.example.edushieldpro.ui.models.Course
+import com.example.edushieldpro.models.Course
 
 class ChaptersAdapter : RecyclerView.Adapter<ChaptersAdapter.AddressViewHolder>(){
 

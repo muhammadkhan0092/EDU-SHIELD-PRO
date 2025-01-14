@@ -1,4 +1,4 @@
-package com.example.edushieldpro.ui.utils
+package com.example.edushieldpro.utils
 
 import android.content.Context
 import android.view.View
