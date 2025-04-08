@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -74,6 +75,7 @@ class PurchaseFragment : Fragment(){
 
 
     private fun onClickListener() {
+        onBackPressed()
         binding.imageView4.setOnClickListener {
             findNavController().navigate(R.id.action_purchaseFragment_to_homeFragment)
         }
@@ -88,6 +90,12 @@ class PurchaseFragment : Fragment(){
                 it.putString("from","purchase")
             }
             findNavController().navigate(R.id.action_purchaseFragment_to_courseDetailFragment,bundle)
+        }
+    }
+
+    private fun onBackPressed() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            findNavController().navigate(R.id.action_purchaseFragment_to_homeFragment)
         }
     }
 

@@ -144,8 +144,8 @@ class SettingFragment : Fragment(){
         binding.imageView12.setOnClickListener {
             findNavController().popBackStack()
         }
-        val callback = requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-           findNavController().popBackStack()
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+           findNavController().navigate(R.id.action_settingFragment_to_learningFragment)
         }
     }
 

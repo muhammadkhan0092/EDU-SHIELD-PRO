@@ -190,7 +190,7 @@ class LearningFragment : Fragment(){
         binding.imageView11.setOnClickListener {
             findNavController().navigate(R.id.action_learningFragment_to_purchaseFragment)
         }
-        val callback = requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             findNavController().navigate(R.id.action_learningFragment_to_purchaseFragment)
         }
         myLearningAdapter.onClick = {c->
