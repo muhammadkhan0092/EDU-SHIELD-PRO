@@ -45,6 +45,7 @@ android {
 }
 
 dependencies {
+    implementation ("com.stripe:stripe-android:20.39.0")
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -61,7 +62,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     implementation("com.google.dagger:hilt-android:2.48.1")
     kapt("com.google.dagger:hilt-compiler:2.48.1")
-    implementation ("com.vdocipher.aegis:vdocipher-android:1.28.4")
+    implementation ("com.vdocipher.aegis:vdocipher-android:1.28.10")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
@@ -69,4 +70,5 @@ dependencies {
     implementation(kotlin("script-runtime"))
     implementation ("com.cloudinary:cloudinary-android:3.0.2")
     implementation("com.github.bumptech.glide:glide:4.13.0")
+
 }

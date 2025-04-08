@@ -5,7 +5,12 @@
         android:icon="@drawable/home"
         android:title=""/>
     <item
-        android:id="@+id/fragmentCreateCourse"
+        android:id="@+id/fragmentPurchaseHistory"
+        android:icon="@drawable/buy"
+        android:title=""/>
+
+    <item
+        android:id="@+id/profileFragment2"
         android:icon="@drawable/person"
         android:title=""/>
 </menu>

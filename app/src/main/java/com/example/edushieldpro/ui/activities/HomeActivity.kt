@@ -9,53 +9,65 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.ActivityHomeBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityHomeBinding
+    lateinit var binding : ActivityHomeBinding
+    lateinit var SS : BottomNavigationView
     private lateinit var writePreferences : SharedPreferences.Editor
     private lateinit var readPreferences : SharedPreferences
+    lateinit var t : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
+        SS = binding.bnbStudent
         setContentView(binding.root)
         setType()
-
     }
+
 
     private fun setType() {
         val data = intent.getStringExtra("type")
-
-        // Accessing shared preferences in one go
+        Log.d("khan","${data}")
         val sharedPreferences = getSharedPreferences("mydata", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-
         if (data != null) {
-            // If data is not null, save it to SharedPreferences
-            editor.putString("type", data)
-            editor.apply() // Apply the change asynchronously
-        }
-
-        // Now retrieve the 'type' value from SharedPreferences
-        val type = sharedPreferences.getString("type", "")
-
-        // Check the 'type' and call corresponding method
-        type?.let {
-            if (it == "student") {
+            if (data == "student") {
+                Log.d("khan","displaying student")
                 bnvStudent()
             } else {
+                Log.d("khan","displaying teacher")
                 bnvInstructor()
             }
+            t = data
+            editor.putString("type", data)
+            editor.apply()
         }
+        else
+        {
+            val type = sharedPreferences.getString("type", "")
+            Log.d("khan","type is ${type}")
+            type?.let {
+                t = it
+                if (it == "student") {
+                    Log.d("khan","displaying student")
+                    bnvStudent()
+                } else {
+                    Log.d("khan","displaying teacher")
+                    bnvInstructor()
+                }
+            }
+        }
+
     }
     private fun bnvStudent() {
         Toast.makeText(this, "in student", Toast.LENGTH_SHORT).show()
-
-        // Hide Instructor fragment container and make Student container visible
         val fragmentInstructor = findViewById<FragmentContainerView>(R.id.fragmentContainerViewInstructor)
         val fragmentStudent = findViewById<FragmentContainerView>(R.id.fragmentContainerViewStudent)
 
@@ -64,13 +76,11 @@ class HomeActivity : AppCompatActivity() {
 
         binding.bnbStudent.visibility = View.VISIBLE
         fragmentStudent.visibility = View.VISIBLE
-
-        // Set the icon color for the Student tab
         val colorStateList = ContextCompat.getColorStateList(this, R.color.se)
         binding.bnbStudent.itemIconTintList = colorStateList
 
-        // Setup navigation for Student tab
-        val navController = findNavController(R.id.fragmentContainerViewStudent)
+        val navHostFragment= supportFragmentManager.findFragmentById(R.id.fragmentContainerViewStudent) as NavHostFragment
+        val navController= navHostFragment.navController
         binding.bnbStudent.setupWithNavController(navController)
 
         binding.bnbStudent.setOnItemSelectedListener { menuItem ->
@@ -93,10 +103,25 @@ class HomeActivity : AppCompatActivity() {
         val navController = findNavController(R.id.fragmentContainerViewInstructor)
         binding.bnbInstructor.setupWithNavController(navController)
         binding.bnbInstructor.setOnItemSelectedListener { menuItem ->
+            Log.d("hehe","changing")
             if (navController.currentDestination?.id != menuItem.itemId) {
                 navController.navigate(menuItem.itemId)
             }
             true
+        }
+    }
+
+    fun handleVisibility(){
+        val navController = findNavController(R.id.fragmentContainerViewInstructor)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            Log.d("hamza","${destination.id}")
+            if(destination.id == R.id.videoFragment) {
+
+                binding.bnbStudent.visibility = View.GONE
+            } else {
+
+                binding.bnbStudent.visibility = View.VISIBLE
+            }
         }
     }
 }

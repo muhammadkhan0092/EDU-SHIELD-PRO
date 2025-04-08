@@ -11,8 +11,11 @@ data class Course(
     val category: String = "",
     val image: String = "",
     val rating: Double = 0.0,
-    val sold:Int = 0,
+    var sold:Int = 0,
     val price : String="",
     val description : String="",
-    var videos : MutableList<VideoData> = mutableListOf()
+    var videos : MutableList<VideoData> = mutableListOf(),
+    var students : MutableList<String>  = mutableListOf(),
+    val paid:Int = 0,
+    var jazzcash : String = ""
 ) : Parcelable

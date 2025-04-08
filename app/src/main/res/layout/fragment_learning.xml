@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F6EE"
+    android:background="#C9D5DF"
     tools:context=".ui.activities.MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -71,11 +71,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:backgroundTint="#E70909"
-                android:tint="#6AB118"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/search" />
+                app:srcCompat="@drawable/search"
+                app:tint="#6AB118" />
 
             <EditText
                 android:id="@+id/editTextText2"
@@ -99,7 +99,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:backgroundTint="#4CAF50"
+        android:backgroundTint="@color/green"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -143,8 +143,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="40dp"
-        android:backgroundTint="#F9F6EE"
-        app:cardBackgroundColor="#F9F6EE"
+        android:backgroundTint="#C9D5DF"
+        app:cardBackgroundColor="#C9D5DF"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -155,7 +155,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/card_courses"
-            android:backgroundTint="#F9F6EE">
+            android:backgroundTint="#C9D5DF">
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -164,12 +164,24 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:background="#F9F6EE"
+                android:background="#C9D5DF"
                 android:paddingTop="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progressBar7"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

@@ -1,7 +1,6 @@
 package com.example.edushieldpro
 
 import android.app.Application
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.cloudinary.android.MediaManager
 import dagger.hilt.android.HiltAndroidApp
 

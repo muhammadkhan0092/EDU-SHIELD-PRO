@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.activities.HomeActivity">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerViewStudent"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
@@ -27,7 +27,7 @@
         android:id="@+id/bnbStudent"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/green"
+        android:background="#5CA5E1"
         android:visibility="invisible"
         app:itemIconSize="30dp"
         app:itemIconTint="@color/white"
@@ -57,7 +57,7 @@
         android:id="@+id/bnbInstructor"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/green"
+        android:background="#3E9CEA"
         app:itemIconSize="30dp"
         app:itemIconTint="@color/white"
         app:itemTextColor="@android:color/transparent"

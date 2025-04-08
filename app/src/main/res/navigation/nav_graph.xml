@@ -6,7 +6,7 @@
     app:startDestination="@id/splashScreenFragment">
     <fragment
         android:id="@+id/splashScreenFragment"
-        android:name="com.example.edushieldpro.ui.fragmentIntro.SplashScreenFragment"
+        android:name="com.example.edushieldpro.ui.fragmentCommon.SplashScreenFragment"
         android:label="SplashScreenFragment" >
         <action
             android:id="@+id/action_splashScreenFragment_to_welcomeFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.example.edushieldpro.ui.fragmentIntro.WelcomeFragment"
+        android:name="com.example.edushieldpro.ui.fragmentCommon.WelcomeFragment"
         android:label="WelcomeFragment" >
         <action
             android:id="@+id/action_welcomeFragment_to_termsAndConditionFragment"
@@ -22,10 +22,10 @@
     </fragment>
     <fragment
         android:id="@+id/termsAndConditionFragment"
-        android:name="com.example.edushieldpro.ui.fragmentIntro.TermsAndConditionFragment"
+        android:name="com.example.edushieldpro.ui.fragmentCommon.TermsAndConditionFragment"
         android:label="TermsAndConditionFragment" />
     <fragment
         android:id="@+id/fragmentVideo"
-        android:name="com.example.edushieldpro.ui.fragmentIntro.FragmentVideo"
+        android:name="com.example.edushieldpro.ui.fragmentCommon.FragmentVideo"
         android:label="FragmentVideo" />
 </navigation>

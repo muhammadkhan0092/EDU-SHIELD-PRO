@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.RvAllCoursesItemBinding
 import com.example.edushieldpro.models.Course
+import com.example.edushieldpro.models.VideoData
 
 class AllCoursesAdapter : RecyclerView.Adapter<AllCoursesAdapter.AddressViewHolder>(){
 
@@ -50,8 +51,14 @@ class AllCoursesAdapter : RecyclerView.Adapter<AllCoursesAdapter.AddressViewHold
             tvTitle.text = item.title
             tvRating.text = item.rating.toString()
         }
+
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(item)
+        }
     }
 
+
+    var onClick : ((Course) -> Unit)? = null
 
 
 

@@ -81,17 +81,6 @@
                 app:layout_constraintStart_toEndOf="@+id/tvRating"
                 app:layout_constraintTop_toTopOf="@+id/tvRating" />
 
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:text="93/125"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/cardView3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/cardView3" />
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView3"
                 android:layout_width="0dp"
@@ -108,7 +97,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="start"
                     android:background="@drawable/progress_back"
-                    android:padding="5dp">
+                    android:padding="3dp">
 
                     <View
                         android:id="@+id/flexibleView"

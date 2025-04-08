@@ -8,13 +8,17 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.bumptech.glide.Glide
 import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.RvMyLearningItemBinding
 import com.example.edushieldpro.models.Course
+import com.example.edushieldpro.models.TimeData
+import com.example.edushieldpro.models.VideoData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.math.min
 
 
 class MyLearningAdapter : RecyclerView.Adapter<MyLearningAdapter.MyLearningViewHolder>(){
@@ -53,17 +57,35 @@ class MyLearningAdapter : RecyclerView.Adapter<MyLearningAdapter.MyLearningViewH
         val item = differ.currentList[position]
         holder.itemView.post {
             val www = holder.binding.flexibleView.width
-            Log.d("khan","on ${www}")
             val layoutParams = holder.binding.flexibleView.layoutParams
-            layoutParams.width = www / item.sold
-            holder.binding.flexibleView.layoutParams = layoutParams
-            holder.binding.imageView6.setImageResource(R.drawable.testing)
+          //  Log.d("khan","on ${www}")
+           // layoutParams.width = www / item.sold
+          //  holder.binding.flexibleView.layoutParams = layoutParams
+            Glide.with(holder.itemView).load(item.image).into(holder.binding.imageView6)
+            holder.binding.tvTitle.text = item.title
+            holder.binding.tvCategory.text = item.category
+            val timeData : TimeData = calculateDuration(item.videos)
+            holder.binding.textView16.text = "${timeData.minutes} Mins ${timeData.seconds} Seconds"
+            holder.itemView.setOnClickListener {
+                onClick?.invoke(item)
+            }
         }
+    }
+
+    private fun calculateDuration(videos: MutableList<VideoData>): TimeData {
+        var mins = 0
+        var seconds = 0
+        videos.forEach {
+            mins = mins + it.timeData.minutes
+            seconds = seconds + it.timeData.seconds
+        }
+        return TimeData(mins,seconds)
     }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
 
+    var onClick : ((Course) -> Unit)? = null
 
 }

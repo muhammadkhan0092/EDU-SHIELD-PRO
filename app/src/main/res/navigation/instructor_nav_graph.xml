@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragmentCreateCourse"
-        android:name="com.example.edushieldpro.ui.instructor.FragmentCreateCourse"
+        android:name="com.example.edushieldpro.ui.fragmentsInstructor.FragmentCreateCourse"
         android:label="FragmentCreateCourse" >
         <action
             android:id="@+id/action_fragmentCreateCourse_to_instructorCoursesFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/instructorCoursesFragment"
-        android:name="com.example.edushieldpro.ui.instructor.InstructorCoursesFragment"
+        android:name="com.example.edushieldpro.ui.fragmentsInstructor.InstructorCoursesFragment"
         android:label="InstructorCoursesFragment" >
         <action
             android:id="@+id/action_instructorCoursesFragment_to_fragmentCreateCourse"
@@ -28,10 +28,22 @@
     </fragment>
     <fragment
         android:id="@+id/instructorCourseDetailFragment"
-        android:name="com.example.edushieldpro.ui.instructor.InstructorCourseDetailFragment"
+        android:name="com.example.edushieldpro.ui.fragmentsInstructor.InstructorCourseDetailFragment"
         android:label="InstructorCourseDetailFragment" >
         <argument
             android:name="course"
             app:argType="com.example.edushieldpro.models.Course" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment2"
+        android:name="com.example.edushieldpro.ui.fragmentCommon.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment2_to_instructorCoursesFragment"
+            app:destination="@id/instructorCoursesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPurchaseHistory"
+        android:name="com.example.edushieldpro.ui.fragmentsInstructor.FragmentPurchaseHistory"
+        android:label="FragmentPurchaseHistory" />
 </navigation>
