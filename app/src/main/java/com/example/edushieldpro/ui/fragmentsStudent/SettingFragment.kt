@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.FragmentSettingBinding
 import com.example.edushieldpro.models.User
+import com.example.edushieldpro.ui.activities.HomeActivity
 import com.example.edushieldpro.ui.activities.IntroActivity
 import com.example.edushieldpro.ui.activities.MainActivity
 import com.example.edushieldpro.utils.Constants.typeStudent
@@ -40,6 +41,7 @@ class SettingFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as HomeActivity).binding.bnbStudent.visibility = View.VISIBLE
         getUser()
         onClickListeners()
         setupBackPressListener()
@@ -50,7 +52,20 @@ class SettingFragment : Fragment(){
         onProfileClickListener()
         onHelpClickListener()
         onLogoutClickListener()
+        onTermsClickedListener()
         observeLogout()
+    }
+
+    private fun onTermsClickedListener() {
+        binding.tvTerms.setOnClickListener {
+            findNavController().navigate(R.id.action_settingFragment_to_termsAndConditionFragment2)
+        }
+        binding.ivTerms.setOnClickListener {
+            findNavController().navigate(R.id.action_settingFragment_to_termsAndConditionFragment2)
+        }
+        binding.ivForwardTerms.setOnClickListener {
+            findNavController().navigate(R.id.action_settingFragment_to_termsAndConditionFragment2)
+        }
     }
 
     private fun observeLogout() {
@@ -142,7 +157,7 @@ class SettingFragment : Fragment(){
 
     private fun setupBackPressListener() {
         binding.imageView12.setOnClickListener {
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_settingFragment_to_learningFragment)
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
            findNavController().navigate(R.id.action_settingFragment_to_learningFragment)

@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -134,19 +135,12 @@ class ProfileFragment : Fragment() {
     }
 
     private fun onClickListeners() {
-        binding.imageView12.setOnClickListener {
-            if(type=="teacher"){
-                findNavController().navigate(R.id.action_profileFragment2_to_instructorCoursesFragment)
-            }
-            else if(type=="student"){
-                findNavController().navigate(R.id.action_profileFragment_to_settingFragment)
-            }
-        }
-        binding.button5.setOnClickListener {
-            val intent  = Intent(ACTION_GET_CONTENT)
-            intent.type = "image/*"
-            pickProfileImage.launch(intent)
-        }
+        onSelectImage()
+        onButtonClick()
+        onBackClicked()
+    }
+
+    private fun onButtonClick() {
         binding.button.setOnClickListener {
             val name = binding.etName.text.toString()
             user.name = name
@@ -156,6 +150,33 @@ class ProfileFragment : Fragment() {
             else
             {
                 viewModel.setUser(type,user)
+            }
+        }
+    }
+
+    private fun onSelectImage() {
+        binding.button5.setOnClickListener {
+            val intent  = Intent(ACTION_GET_CONTENT)
+            intent.type = "image/*"
+            pickProfileImage.launch(intent)
+        }
+    }
+
+    private fun onBackClicked() {
+        binding.imageView12.setOnClickListener {
+            if(type=="teacher"){
+                findNavController().navigate(R.id.action_profileFragment2_to_instructorCoursesFragment)
+            }
+            else if(type=="student"){
+                findNavController().navigate(R.id.action_profileFragment_to_settingFragment)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            if(type=="teacher"){
+                findNavController().navigate(R.id.action_profileFragment2_to_instructorCoursesFragment)
+            }
+            else if(type=="student"){
+                findNavController().navigate(R.id.action_profileFragment_to_settingFragment)
             }
         }
     }
@@ -177,6 +198,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setData() {
+        (activity as HomeActivity).binding.bnbStudent.visibility = View.GONE
         type = (activity as HomeActivity).t
         Log.d("khan","type : ${type}")
         if(type=="student"){

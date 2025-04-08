@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.edushieldpro.databinding.FragmentTermsAndConditionsBinding
 import com.example.edushieldpro.models.TimeData
+import com.example.edushieldpro.ui.activities.HomeActivity
 import com.example.edushieldpro.ui.activities.MainActivity
 import com.example.edushieldpro.utils.Constants.typeStudent
 import com.google.android.play.core.integrity.client.R
@@ -33,6 +34,8 @@ class TermsAndConditionFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as HomeActivity).binding.bnbStudent.visibility = View.GONE
+        (activity as HomeActivity).binding.bnbInstructor.visibility = View.GONE
         getData()
         onClickListeners()
     }
