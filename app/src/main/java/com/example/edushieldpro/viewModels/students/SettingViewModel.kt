@@ -20,6 +20,10 @@ class SettingViewModel @Inject constructor(
     val getUser : StateFlow<Resource<User>>
         get() = _getUser.asStateFlow()
 
+    private val _logout = MutableStateFlow<Resource<String>>(Resource.Unspecified())
+    val logout : StateFlow<Resource<String>>
+        get() = _logout.asStateFlow()
+
     fun getUser(type : String){
         userRepository.getUser(
             type,
@@ -34,6 +38,15 @@ class SettingViewModel @Inject constructor(
                 }
             }
         )
+    }
+    fun logout(){
+        viewModelScope.launch {
+            _logout.emit(Resource.Loading())
+        }
+        userRepository.logout()
+        viewModelScope.launch {
+            _logout.emit(Resource.Success("done"))
+        }
     }
 
 

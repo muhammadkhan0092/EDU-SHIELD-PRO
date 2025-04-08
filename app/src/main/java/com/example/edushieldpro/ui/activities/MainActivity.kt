@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private var currentSection = "login"
+    private var currentSection = "sign"
     var type = ""
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setupUi() {
-        setTitle(type,"login")
-        setDescription(type,"login")
+        setTitle(type,"sign")
+        setDescription(type,"sign")
     }
 
 

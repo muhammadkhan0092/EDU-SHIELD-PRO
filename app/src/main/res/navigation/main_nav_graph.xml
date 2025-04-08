@@ -65,6 +65,9 @@
         <action
             android:id="@+id/action_settingFragment_to_fragmentSupport"
             app:destination="@id/fragmentSupport" />
+        <action
+            android:id="@+id/action_settingFragment_to_termsAndConditionFragment2"
+            app:destination="@id/termsAndConditionFragment2" />
     </fragment>
     <fragment
         android:id="@+id/courseDetailFragment"
@@ -130,4 +133,12 @@
         android:id="@+id/fragmentSupport"
         android:name="com.example.edushieldpro.ui.fragmentsStudent.FragmentSupport"
         android:label="FragmentSupport" />
+    <fragment
+        android:id="@+id/termsAndConditionFragment2"
+        android:name="com.example.edushieldpro.ui.fragmentCommon.TermsAndConditionFragment"
+        android:label="TermsAndConditionFragment" >
+        <action
+            android:id="@+id/action_termsAndConditionFragment2_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
 </navigation>

@@ -23,7 +23,11 @@
     <fragment
         android:id="@+id/termsAndConditionFragment"
         android:name="com.example.edushieldpro.ui.fragmentCommon.TermsAndConditionFragment"
-        android:label="TermsAndConditionFragment" />
+        android:label="TermsAndConditionFragment" >
+        <action
+            android:id="@+id/action_termsAndConditionFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentVideo"
         android:name="com.example.edushieldpro.ui.fragmentCommon.FragmentVideo"

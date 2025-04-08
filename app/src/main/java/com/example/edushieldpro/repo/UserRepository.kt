@@ -155,4 +155,8 @@ class UserRepository @Inject constructor(
     fun getPurchaseHistory(id:String,onSuccess: (MutableList<DataPurchaseHistory>) -> Unit,onError: (String) -> Unit){
         firebaseAuthSource.getPurchaseHistory(id,onSuccess,onError)
     }
+
+    fun logout() {
+        firebaseAuthSource.signOut()
+    }
 }

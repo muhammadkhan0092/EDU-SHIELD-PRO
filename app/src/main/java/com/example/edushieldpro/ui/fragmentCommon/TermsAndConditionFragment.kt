@@ -5,10 +5,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.edushieldpro.databinding.FragmentTermsAndConditionsBinding
+import com.example.edushieldpro.models.TimeData
 import com.example.edushieldpro.ui.activities.MainActivity
 import com.example.edushieldpro.utils.Constants.typeStudent
+import com.google.android.play.core.integrity.client.R
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,8 +33,38 @@ class TermsAndConditionFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getData()
+        onClickListeners()
+    }
+
+    private fun onClickListeners() {
         onRadioButtonClicked()
         onProceedClickedListener()
+        onBackClickListener()
+    }
+
+    private fun onBackClickListener() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            if(FirebaseAuth.getInstance().currentUser==null){
+                findNavController().navigate(com.example.edushieldpro.R.id.action_termsAndConditionFragment_to_welcomeFragment)
+            }
+            else
+            {
+                findNavController().navigate(com.example.edushieldpro.R.id.action_termsAndConditionFragment2_to_settingFragment)
+            }
+        }
+    }
+
+    private fun getData() {
+        if(FirebaseAuth.getInstance().currentUser!=null){
+            binding.radioButton23.visibility = View.INVISIBLE
+            binding.button4.visibility = View.INVISIBLE
+        }
+        else
+        {
+            binding.radioButton23.visibility = View.VISIBLE
+            binding.button4.visibility = View.VISIBLE
+        }
     }
 
     private fun onProceedClickedListener() {

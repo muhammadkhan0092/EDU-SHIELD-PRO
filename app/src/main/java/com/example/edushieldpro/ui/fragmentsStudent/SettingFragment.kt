@@ -1,5 +1,6 @@
 package com.example.edushieldpro.ui.fragmentsStudent
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,9 @@ import com.bumptech.glide.Glide
 import com.example.edushieldpro.R
 import com.example.edushieldpro.databinding.FragmentSettingBinding
 import com.example.edushieldpro.models.User
+import com.example.edushieldpro.ui.activities.IntroActivity
+import com.example.edushieldpro.ui.activities.MainActivity
+import com.example.edushieldpro.utils.Constants.typeStudent
 import com.example.edushieldpro.utils.Resource
 import com.example.edushieldpro.viewModels.students.SettingViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,10 +41,54 @@ class SettingFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getUser()
-        onProfileClickListener()
-        onHelpClickListener()
+        onClickListeners()
         setupBackPressListener()
         observeUserData()
+    }
+
+    private fun onClickListeners() {
+        onProfileClickListener()
+        onHelpClickListener()
+        onLogoutClickListener()
+        observeLogout()
+    }
+
+    private fun observeLogout() {
+        lifecycleScope.launch {
+            viewModel.logout.collectLatest {
+                when(it){
+                    is Resource.Error -> {
+
+                    }
+                    is Resource.Loading -> {
+                        binding.progressBar10.visibility = View.VISIBLE
+                    }
+                    is Resource.Success -> {
+                        binding.progressBar10.visibility = View.INVISIBLE
+                        Toast.makeText(requireContext(), "Logout Successfull", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(requireContext(), MainActivity::class.java)
+                        intent.putExtra("type", typeStudent)
+                        startActivity(intent)
+                        requireActivity().finish()
+                    }
+                    is Resource.Unspecified -> {
+
+                    }
+                }
+            }
+        }
+    }
+
+    private fun onLogoutClickListener() {
+        binding.ivPayment.setOnClickListener {
+            viewModel.logout()
+        }
+        binding.tvPayment.setOnClickListener {
+            viewModel.logout()
+        }
+        binding.ivForwardPayment.setOnClickListener {
+            viewModel.logout()
+        }
     }
 
     private fun onHelpClickListener() {
